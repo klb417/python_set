@@ -55,3 +55,10 @@ for makeIndex, make in makes:
 
 
 print(json.dumps(output))
+
+for make, makeDetails in output.items():
+    print(f"{make}\n------------------")
+    for model, colors in makeDetails.items():
+        allColors = ", ".join(colors)
+        print(f"{model} is available in {allColors}.")
+    print("")
