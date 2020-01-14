@@ -101,12 +101,17 @@ output = {
     for makeIndex, make in makes
 }
 
-
 print(json.dumps(output))
 # print(output)
 
-for make, makeDetails in output.items():
-    print(f"{make}\n------------------")
-    for model, colors in makeDetails.items():
-        print(f"{model} is available in " ", ".join(colors))
-    print("")
+fancyOutput = "\n\n".join(
+    f"\n{make}\n------------------\n"
+    + "\n".join(
+        [
+            f"{model} is available in " + ", ".join(colors)
+            for model, colors in makeDetails.items()
+        ]
+    )
+    for make, makeDetails in output.items()
+)
+print(fancyOutput)
