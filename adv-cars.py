@@ -1,4 +1,5 @@
 import json
+import pprint
 
 makes = (
     (1, "Toyota"),
@@ -101,8 +102,8 @@ output = {
     for makeIndex, make in makes
 }
 
-print(json.dumps(output))
-# print(output)
+# print(json.dumps(output))
+pprint.pprint(output)
 
 fancyOutput = "\n\n".join(
     f"\n{make}\n------------------\n"
